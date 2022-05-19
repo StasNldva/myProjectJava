@@ -1,6 +1,6 @@
 package neledva.projects.simplebank;
 
-public class Account {
+class Account {
 
     private static long accountNumbers = 0;
     private long number;
@@ -14,18 +14,26 @@ public class Account {
     }
 
     protected boolean increaseBalance(long cash){
+        if (cash > 0){
+            balance += cash;
+            return true;
+        }
         return false;
     }
 
     protected boolean reduceBalance(long cash) {
+        if (cash > 0 && balance > cash){
+            balance -= cash;
+            return true;
+        }
         return false;
     }
 
     protected long getAccountNumber() {
-        return 0;
+        return number;
     }
 
     protected long getAccountBalance() {
-        return 0;
+        return balance;
     }
 }
